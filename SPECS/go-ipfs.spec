@@ -1,4 +1,5 @@
 %define debug_package %{nil}
+%define repo github.com/ipfs/go-ipfs
 Name:           go-ipfs
 Version:        0.4.14
 Release:        1%{?dist}
@@ -17,17 +18,16 @@ AutoReqProv:    no
 Hugo is a static HTML and CSS website generator written in Go. It is optimized for speed, easy use and configurability. Hugo takes a directory with content and templates and renders them into a full HTML website.
 
 %prep
-mkdir -p %{_builddir}/src/github.com/ipfs
-cd %{_builddir}/src/github.com/ipfs
-tar -xvzf %{_sourcedir}/v%{version}.tar.gz 
-mv %{name}-%{version} %{name}
-cd %{name}
+%setup -q -c
+mkdir -p $(dirname src/%{repo})
+mv %{name}-%{version} src/%{repo}
+cd src/%{repo}
 make deps
 
 %build
-export GOPATH="%{_builddir}"
-export PATH=$PATH:"%{_builddir}"/bin
-cd %{_builddir}/src/github.com/ipfs/%{name}
+export GOPATH="$(pwd)"
+export PATH=$PATH:"$(pwd)"/bin
+cd src/%{repo}
 make build
 
 %install
@@ -59,13 +59,13 @@ Restart=on-failure
 [Install]
 WantedBy=default.target
 EOF
-cp %{_builddir}/src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash %{buildroot}/usr/share/bash-completion/completions/ipfs
+cp src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash %{buildroot}%{_datadir}/bash-completion/completions/ipfs
 
 %files
 %{_bindir}/ipfs
 %{_unitdir}ipfs.service
 %{_unitdir}ipfs@.service
-/usr/share/bash-completion/completions/ipfs/ipfs-completion.bash
+%{_datadir}/bash-completion/completions/ipfs/ipfs-completion.bash
 %license src/github.com/ipfs/%{name}/LICENSE
 
 %changelog

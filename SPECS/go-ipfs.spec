@@ -35,7 +35,7 @@ mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 mkdir -p %{buildroot}%{_datadir}/bash-completion/completions/ipfs
 
-cp %{_builddir}/src/github.com/ipfs/%{name}/cmd/ipfs/ipfs %{buildroot}%{_bindir}
+cp src/github.com/ipfs/%{name}/cmd/ipfs/ipfs %{buildroot}%{_bindir}
 cat << EOF >>  %{buildroot}%{_unitdir}ipfs.service
 [Unit]
 Description=InterPlanetary File System (IPFS) daemon

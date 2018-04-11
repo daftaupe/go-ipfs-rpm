@@ -4,7 +4,7 @@ Version:        0.4.14
 Release:        1%{?dist}
 Summary:        A Fast and Flexible Static Site Generator
 
-License:        Apache 2.0
+License:        MIT
 URL:            https://github.com/ipfs/%{name}
 Source0:        https://github.com/ipfs/%{name}/archive/v%{version}.tar.gz
 
@@ -66,6 +66,7 @@ cp %{_builddir}/src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash
 %{_unitdir}ipfs.service
 %{_unitdir}ipfs@.service
 /usr/share/bash-completion/completions/ipfs/ipfs-completion.bash
+%license src/github.com/ipfs/%{name}/LICENSE
 
 %changelog
 * Tue Apr 10 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.14-0

@@ -3,7 +3,7 @@
 Name:           go-ipfs
 Version:        0.4.14
 Release:        1%{?dist}
-Summary:        A Fast and Flexible Static Site Generator
+Summary:        IPFS implementation in Go
 
 License:        MIT
 URL:            https://github.com/ipfs/%{name}

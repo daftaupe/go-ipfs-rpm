@@ -4,7 +4,6 @@ Version:        0.4.14
 Release:        1%{?dist}
 Summary:        A Fast and Flexible Static Site Generator
 
-Group:          Applications/System
 License:        Apache 2.0
 URL:            https://github.com/ipfs/%{name}
 Source0:        https://github.com/ipfs/%{name}/archive/v%{version}.tar.gz

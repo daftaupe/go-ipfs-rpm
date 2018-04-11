@@ -21,8 +21,6 @@ Hugo is a static HTML and CSS website generator written in Go. It is optimized f
 %setup -q -c
 mkdir -p $(dirname src/%{repo})
 mv %{name}-%{version} src/%{repo}
-cd src/%{repo}
-make deps
 
 %build
 export GOPATH="$(pwd)"

@@ -6,8 +6,8 @@ Release:        1%{?dist}
 Summary:        IPFS implementation in Go
 
 License:        MIT
-URL:            https://github.com/ipfs/%{name}
-Source0:        https://github.com/ipfs/%{name}/archive/v%{version}.tar.gz
+URL:            https://%{repo}
+Source0:        https://%{repo}/archive/v%{version}.tar.gz
 
 BuildRequires:  git golang systemd
 
@@ -33,7 +33,7 @@ make build
 %install
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
-mkdir -p %{buildroot}/usr/share/bash-completion/completions/ipfs
+mkdir -p %{buildroot}%{_datadir}/bash-completion/completions/ipfs
 
 cp %{_builddir}/src/github.com/ipfs/%{name}/cmd/ipfs/ipfs %{buildroot}%{_bindir}
 cat << EOF >>  %{buildroot}%{_unitdir}ipfs.service
@@ -66,7 +66,7 @@ cp src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash %{buildroot}
 %{_unitdir}ipfs.service
 %{_unitdir}ipfs@.service
 %{_datadir}/bash-completion/completions/ipfs/ipfs-completion.bash
-%license src/github.com/ipfs/%{name}/LICENSE
+%license src/%{repo}/LICENSE
 
 %changelog
 * Tue Apr 10 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.14-0

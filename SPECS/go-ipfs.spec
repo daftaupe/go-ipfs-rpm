@@ -32,11 +32,12 @@ make build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_userunitdir}
 mkdir -p %{buildroot}%{_unitdir}
 mkdir -p %{buildroot}%{_datadir}/bash-completion/completions/ipfs
 
 cp src/github.com/ipfs/%{name}/cmd/ipfs/ipfs %{buildroot}%{_bindir}
-cat << EOF >>  %{buildroot}%{_unitdir}ipfs.service
+cat << EOF >>  %{buildroot}%{_userunitdir}ipfs.service
 [Unit]
 Description=InterPlanetary File System (IPFS) daemon
 
@@ -63,11 +64,11 @@ cp src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash %{buildroot}
 
 %files
 %{_bindir}/ipfs
-%{_unitdir}ipfs.service
+%{_userunitdir}ipfs.service
 %{_unitdir}ipfs@.service
 %{_datadir}/bash-completion/completions/ipfs/ipfs-completion.bash
 %license src/%{repo}/LICENSE
 
 %changelog
-* Tue Apr 10 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.14-0
+* Tue Apr 10 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.14-1
 - Initial rpm : version 0.4.14

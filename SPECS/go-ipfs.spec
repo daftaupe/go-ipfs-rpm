@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 %define repo github.com/ipfs/go-ipfs
 Name:           go-ipfs
-Version:        0.4.14
+Version:        0.4.15
 Release:        1%{?dist}
 Summary:        IPFS implementation in Go
 
@@ -68,5 +68,8 @@ cp src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash %{buildroot}
 %license src/%{repo}/LICENSE
 
 %changelog
+* Sat May 12 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.15-1
+- Update to version 0.4.14
+
 * Tue Apr 10 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.14-1
 - Initial rpm : version 0.4.14

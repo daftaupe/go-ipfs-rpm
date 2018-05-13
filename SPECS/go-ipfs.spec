@@ -15,7 +15,7 @@ AutoReq:        no
 AutoReqProv:    no
 
 %description
-Hugo is a static HTML and CSS website generator written in Go. It is optimized for speed, easy use and configurability. Hugo takes a directory with content and templates and renders them into a full HTML website.
+IPFS implementation in Go
 
 %prep
 %setup -q -c
@@ -68,8 +68,12 @@ cp src/github.com/ipfs/%{name}/misc/completion/ipfs-completion.bash %{buildroot}
 %license src/%{repo}/LICENSE
 
 %changelog
+* Sun May 13 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.15-2
+- Change changelog
+- Fix description
+
 * Sat May 12 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.15-1
-- Update to version 0.4.14
+- Update to version 0.4.15
 
 * Tue Apr 10 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 0.4.14-1
 - Initial rpm : version 0.4.14
